@@ -1,6 +1,22 @@
 # coding=utf-8
 
 
+
+#**********************************************************************
+# this function aims to open a text file with several possible encodings
+#**********************************************************************
+def opens(file, encodings) :
+    import sys
+    for e in encodings:
+        try:
+            open(file, encoding=e).read()
+            return open(file, encoding=e)
+        except:
+            pass
+    print(f"Error! cannot find valid encoding from {encodings} for {file}")
+    sys.exit(1)
+
+
 #**********************************************************************
 # this function is used to write variable to nc file quickly
 # like ncl easy mode
