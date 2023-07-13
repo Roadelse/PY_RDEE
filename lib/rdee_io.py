@@ -1,7 +1,6 @@
 # coding=utf-8
 
 
-
 #**********************************************************************
 # this function aims to open a text file with several possible encodings
 #**********************************************************************
@@ -15,6 +14,20 @@ def opens(file, encodings) :
             pass
     print(f"Error! cannot find valid encoding from {encodings} for {file}")
     sys.exit(1)
+
+
+#**********************************************************************
+# This function aims to create directory if not exists, based on a file path
+#**********************************************************************
+def ensureDirExist(fpath: str):
+    """
+    param >> fpath : absolute filepath, relative path may be ok as well
+    return >> fpath : this funtion will right return the param, make it easy to be embedded into codes
+    """
+    import os.path as osp
+    import os
+    os.makedirs(osp.dirname(fpath), exist_ok=True)
+    return fpath
 
 
 #**********************************************************************
