@@ -1,5 +1,20 @@
 # coding=utf-8
 
+#**********************************************************************
+# This function aims to simplify time-statistc by keys
+#**********************************************************************
+def rdTimer(key: any, init: int = 0):
+    import time
+    if not init and hasattr(rdTimer, key):
+        rst = time.time() - getattr(rdTimer, key)
+        setattr(rdTimer, key, time.time())
+        print(f">>> time cost is {rst} for {key}")
+        return rst
+    else:
+        setattr(rdTimer, key, time.time())
+    return
+
+
 
 #**********************************************************************
 # This function is used to get MM from times such as YYYYMMDD, 
