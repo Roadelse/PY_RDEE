@@ -19,7 +19,7 @@ def opens(file, encodings) :
 #**********************************************************************
 # This function aims to create directory if not exists, based on a file path
 #**********************************************************************
-def ensureDirExist(fpath: str):
+def ensureFileDirExist(fpath: str):
     """
     param >> fpath : absolute filepath, relative path may be ok as well
     return >> fpath : this funtion will right return the param, make it easy to be embedded into codes
@@ -28,6 +28,16 @@ def ensureDirExist(fpath: str):
     import os
     os.makedirs(osp.dirname(fpath), exist_ok=True)
     return fpath
+
+def ensureDirExist(dirpath: str):
+    """
+    param >> fpath : absolute filepath, relative path may be ok as well
+    return >> fpath : this funtion will right return the param, make it easy to be embedded into codes
+    """
+    import os.path as osp
+    import os
+    os.makedirs(dirpath, exist_ok=True)
+    return dirpath
 
 
 #**********************************************************************
