@@ -13,3 +13,4 @@ from rdee_research import *
 from rdee_win import *
 from rdee_plot import *
 from rdee_string import *
+from rdee_oop import *
