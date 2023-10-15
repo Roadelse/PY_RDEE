@@ -41,3 +41,16 @@ def GetShortCut(shortcut):
     shell = client.Dispatch("WScript.Shell")
 
     return shell.CreateShortCut(shortcut).Targetpath
+
+
+def path_win2wsl(path_win):
+    strT = path_win[3:].replace('\\', '/')
+    path_wsl = f"/mnt/{path_win[0].lower()}/{strT}"
+    return path_wsl
+
+def path_wsl2win(path_wsl):
+    disk = path_wsl[5]
+    path_win = disk.upper() + ":\\" + path_wsl[7:].replace('/', '\\')
+    return path_win 
+
+
