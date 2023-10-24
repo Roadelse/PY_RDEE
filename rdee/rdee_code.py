@@ -29,3 +29,13 @@ def norm_skComments(C, level = 1, language = 'ncl') : # normalize skeleton comme
 
     print(res)
 
+
+
+#**********************************************************************
+# this function is used to check if a function has a return value
+#**********************************************************************
+def has_return_value(func):
+    import inspect
+    import ast
+    tree = ast.parse(inspect.getsource(func))
+    return any(isinstance(node, ast.Return) for node in ast.walk(tree))
