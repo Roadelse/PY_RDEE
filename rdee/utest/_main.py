@@ -5,7 +5,8 @@ import unittest
 import inspect
 # ................. project lib
 from .. import _array
-
+from .. import *
+# ................. 3rd libs
 
 
 
@@ -182,6 +183,19 @@ class TestArray(unittest.TestCase):
         assert s1 != list(range(8))
 
 
+class TestCode(unittest.TestCase):
+    def setUp(self):
+        print(f"\nRunning test: {self.id()}")
+
+    def test_get_submodules(self):
+        import numpy as np
+        sms = get_submodules(np)
+        self.assertTrue(len(sms) > 30)
+
+    def test_search_api(self):
+        import numpy as np
+        r = search_api(np, 'random')
+        self.assertTrue(len(r) == 3)
 
 
 def run(targets: str):
